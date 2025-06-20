@@ -5,3 +5,4 @@ MAX_VALUE =5
 MIN_VALUE = 1
 print(MAX_VALUE)
 print(MIN_VALUE)
+
