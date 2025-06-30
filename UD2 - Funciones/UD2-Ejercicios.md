@@ -1,5 +1,7 @@
 # UD2 - Ejercicios de Funciones en Python
 
+### ⚠️ Aunque no te lo diga explícitamente, todos los ejercicios deben ser resueltos utilizando funciones.
+
 1. **Conversión de Temperaturas**  
    Escribe una función que convierta grados Celsius a Fahrenheit y viceversa. Prueba la función con varios valores.
 
@@ -74,11 +76,51 @@ Ejemplo de entrada:
 Salida esperada:
 `[121, 169]`
 
-17. **Ordenar personas por edad y nombre**
-Tienes una lista de tuplas que representan personas como (nombre, edad). 
-Ordena la lista por edad descendente, y si hay empate, por nombre alfabéticamente.
-Ejemplo de entrada:
-`personas = [('Luis', 30), ('Ana', 25), ('Carlos', 30), ('Bea', 22)]`
-Salida esperada:
-`[('Carlos', 30), ('Luis', 30), ('Ana', 25), ('Bea', 22)]`
+17. **Ranking por eficiencia**
+Dada una lista de tuplas (nombre_empleado, tiempo_en_segundos), 
+crea un ranking usando sorted() y lambda por eficiencia (menos tiempo primero). 
+Si empatan, ordena alfabéticamente.
+`tiempos = [('Luis', 320), ('Ana', 300), ('Carlos', 300), ('Bea', 400)]`
+Salida esperada: 
+`[('Ana', 300), ('Carlos', 300), ('Luis', 320), ('Bea', 400)]`
 
+18. **Sistema de votación ponderada por antigüedad**
+Enunciado:
+Crea una función que reciba un diccionario donde las claves son nombres de empleados y 
+los valores son listas de tuplas (años_antigüedad, voto), donde voto es "sí" o "no". 
+La función debe calcular el resultado de una votación interna ponderando cada voto 
+por los años de antigüedad del empleado.
+Devuelve "sí" si el total ponderado de votos a favor supera al de votos en contra.
+
+```python
+votos = {
+    'Luis': [(5, 'sí'), (2, 'sí')],
+    'Ana': [(3, 'no')],
+    'Bea': [(10, 'sí')],
+    'Carlos': [(7, 'no'), (1, 'no')]
+}
+# Resultado esperado: "sí"
+```
+19. **Sistema de gestión de inventario**
+Crea una función que reciba un diccionario representando un inventario de productos,
+donde las claves son nombres de productos y los valores son tuplas (cantidad, precio_unitario).
+La función debe devolver una lista de tuplas ordenada por el valor total del inventario de cada producto (cantidad * precio_unitario) de mayor a menor.
+```python
+inventario = {
+    'manzanas': (50, 0.5),
+    'naranjas': (30, 0.8),
+    'plátanos': (20, 0.6),
+    'uvas': (10, 1.2)
+}  
+# Resultado esperado: [('manzanas', 25.0), ('naranjas', 24.0), ('plátanos', 12.0), ('uvas', 12.0)]
+```
+20. **Comparación de vocabularios con conjuntos**
+Dadas dos cadenas de texto, escribe una función que devuelva:
+Las palabras únicas de cada texto.
+Las palabras en común entre ambos textos.
+Todas las palabras ordenadas alfabéticamente (sin duplicados).
+Usa set() y sorted() para resolverlo.
+```python
+texto1 = "Python es un lenguaje de programación"    
+texto2 = "Java es otro lenguaje de programación popular"
+```
