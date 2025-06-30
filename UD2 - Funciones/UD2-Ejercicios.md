@@ -124,3 +124,33 @@ inventario = {
 texto1 = "Python es un lenguaje de programación"
 texto2 = "Java es otro lenguaje de programación popular"
 ```
+21. **Gestionar ingresos y gastos**
+Realizar un programa que gestione los ingresos y gastos mensuales en un año. 
+Crea una función para leer del teclado los ingresos y gastos de cada mes del año. 
+Crea otra función que a partir de los ingresos y gastos de un año, calcule el balance de cada mes.
+Las funciones no deben escribir nada por pantalla.
+El programa debe leer los datos con la primera función, 
+realizar los cálculos con la segunda 
+y finalmente mostrar los resultados.
+
+22. **Gestionar ingresos y gastos por ubicación** 
+Ampliar la funcionalidad del programa del problema 21 permitiendo gestionar los ingresos y gastos 
+anuales por ciudad y código postal. 
+Modificar la función de lectura de datos convenientemente, así como la función de cálculo de balances
+Además, realizar una tercera función que recibe los balances por ciudad, código postal y mes y 
+devuelve los balances con valor mínimo y máximo, 
+así como a qué ciudades, códigos postales y meses corresponden. 
+Modifica el programa para que lea los datos, realice los cálculos y presente todos los resultados descritos. 
+
+23. **Jugar al Monopoly** 
+Escribir un programa descompuesto convenientemente en base a funciones que, para una suma de dinero 
+dada, indique cómo descomponerla en billetes y monedas corrientes. Se debe utilizar el mínimo posible de billetes y 
+monedas. No existen limitaciones respecto al número de billetes y monedas disponibles.
+
+24. **Dar la campanada**
+Crear un programa que lea del teclado dos valores que indican hora de comienzo y hora de fin (ej: 16:30 
+y 19:17), y presente por pantalla la cantidad de veces que un reloj emite campanadas (las campanas se producen en los 
+minutos: 0, 15, 30 y 45). Se supone que la hora de comienzo es menor que la hora de final y ambas pertenecen al mismo 
+día. 
+Por ejemplo, si la hora de comienzo es 9:44 y la hora de fin es 10:01, hay que informar de 2 campanadas. 
+Si la hora de comienzo es 8:00 y la hora de fin es 10:07, el programa debe indicar que sonaron 8 campanadas.
