@@ -68,5 +68,4 @@ class Punto2D(Punto):
 
 p = Punto2D(1, 2)
 p += Punto2D(3, 0)
-
 print(p)

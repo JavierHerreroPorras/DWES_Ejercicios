@@ -1,20 +1,12 @@
 class MostrableMixin:
-
+# Clase mixin para mostrar objetos de forma personalizada
     str_format = "PrettyPrintableObject"
-
     def __str__(self):
-        """
-        Representación automática de un objeto,
-        basado en el uso de una cadena de formateo
-        que es un atributo de la clase
-        """
+    #Representación automática de un objeto, basado en el uso de una cadena de formateo que es un atributo de la clase
         return self.str_format.format(self=self)
 
-
 class NombreAutomaticoMixin:
-
     ordinal = 65
-
     def __init__(self):
         self.letra = chr(NombreAutomaticoMixin.ordinal)
         NombreAutomaticoMixin.ordinal += 1
@@ -22,11 +14,10 @@ class NombreAutomaticoMixin:
 
 class Punto(MostrableMixin, NombreAutomaticoMixin):
     """Representa un punto en el espacio"""
-
     str_format = "Punto {self.letra} ({self.x}, {self.y}, {self.z})"
 
     def __init__(self, x, y, z):
-        """Método de inicialización de un punto en el espacio"""
+        """Metodo de inicialización de un punto en el espacio"""
         super().__init__()
         self.x, self.y, self.z = x, y, z
 
@@ -82,7 +73,7 @@ class Punto2D(Punto):
     str_format = "Point2D {self.lettre} ({self.x}, {self.y})"
 
     def __init__(self, x, y):
-        """Método de inicialización de un punto en el plano"""
+        """Metodo de inicialización de un punto en el plano"""
         super().__init__(x, y, 0)
 
 
