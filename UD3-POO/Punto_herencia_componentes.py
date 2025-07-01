@@ -76,7 +76,6 @@ class Punto2D(Punto):
         """Metodo de inicialización de un punto en el plano"""
         super().__init__(x, y, 0)
 
-
 p = Punto(1, 2, 3)
 print(p)
 p = Punto2D(1, 2)
