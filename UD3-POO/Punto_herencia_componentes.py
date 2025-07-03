@@ -2,7 +2,8 @@ class MostrableMixin:
 # Clase mixin para mostrar objetos de forma personalizada
     str_format = "PrettyPrintableObject"
     def __str__(self):
-    #Representación automática de un objeto, basado en el uso de una cadena de formateo que es un atributo de la clase
+    #Representación automática de un objeto,
+    # basado en el uso de una cadena de formateo que es un atributo de la clase
         return self.str_format.format(self=self)
 
 class NombreAutomaticoMixin:
@@ -39,11 +40,11 @@ class Punto(MostrableMixin, NombreAutomaticoMixin):
                      self.y - other.y,
                      self.z - other.z)
 
-    def __mul__(self, scalaire):
+    def __mul__(self, escalar):
         """Operador de multiplicación"""
-        return Punto(self.x * scalaire,
-                     self.y * scalaire,
-                     self.z * scalaire)
+        return Punto(self.x * escalar,
+                     self.y * escalar,
+                     self.z * escalar)
 
     def __iadd__(self, other):
         """Operador de suma en el sitio"""
@@ -59,18 +60,18 @@ class Punto(MostrableMixin, NombreAutomaticoMixin):
         self.z -= other.z
         return self
 
-    def __imul__(self, scalaire):
+    def __imul__(self, escalar):
         """Operador de multiplicación en el sitio"""
-        self.x *= scalaire
-        self.y *= scalaire
-        self.z *= scalaire
+        self.x *= escalar
+        self.y *= escalar
+        self.z *= escalar
         return self
 
 
 class Punto2D(Punto):
     """Representa un punto en el plano"""
 
-    str_format = "Point2D {self.lettre} ({self.x}, {self.y})"
+    str_format = "Point2D {self.letra} ({self.x}, {self.y})"
 
     def __init__(self, x, y):
         """Metodo de inicialización de un punto en el plano"""
