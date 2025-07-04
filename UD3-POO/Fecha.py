@@ -72,6 +72,7 @@ class Fecha:
     def __clone__(self):
         """Crea una copia de la fecha"""
         return Fecha(self.dia, self.mes, self.anio)
+    
 
     def __hash__(self):
         """Devuelve un hash de la fecha"""
