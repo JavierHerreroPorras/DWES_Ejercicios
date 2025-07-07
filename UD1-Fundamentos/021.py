@@ -20,6 +20,17 @@ print(list(g))  # Imprime [1, 4, 9]
 # Comprensión de generador con condición
 g2 = (n for n in l if n % 2 == 0)
 print(list(g2))  # Imprime [2]
+# Comprensión de lista con función
+def cuadrado(n):
+    return n ** 2
+l5 = [cuadrado(n) for n in l]
+print(l5)  # Imprime [1, 4, 9]
+# Comprensión de generador con función
+g4 = (cuadrado(n) for n in l)
+print(list(g4))  # Imprime [1, 4, 9]
+# Comprensión de generador con función y condición
+g5 = (cuadrado(n) for n in l if n % 2 == 0)
+print(list(g5))  # Imprime [4]
 # Comprensión de lista anidada
 l4 = [[i, j] for i in range(3) for j in range(2)]
 print(l4)  # Imprime [[0, 0], [0, 1], [1, 0], [1, 1], [2, 0], [2, 1]]
@@ -32,11 +43,6 @@ print(s2)  # Imprime {0, 1, 2, 3, 4}
 # Comprensión de generador anidado
 g3 = (i * j for i in range(3) for j in range(2))
 print(list(g3))  # Imprime [0, 0, 0, 1, 2, 3, 4]
-# Comprensión de lista con función
-def cuadrado(n):
-    return n ** 2
-l5 = [cuadrado(n) for n in l]
-print(l5)  # Imprime [1, 4, 9]
 # Comprensión de lista con función y condición
 l6 = [cuadrado(n) for n in l if n % 2 == 0]
 print(l6)  # Imprime [4]
@@ -46,12 +52,6 @@ print(d3)  # Imprime {1: 1, 2: 4, 3: 9}
 # Comprensión de conjunto con función
 s3 = {cuadrado(n) for n in l}
 print(s3)  # Imprime {1, 4, 9}
-# Comprensión de generador con función
-g4 = (cuadrado(n) for n in l)
-print(list(g4))  # Imprime [1, 4, 9]
-# Comprensión de generador con función y condición
-g5 = (cuadrado(n) for n in l if n % 2 == 0)
-print(list(g5))  # Imprime [4]
 # Comprensión de lista con múltiples condiciones
 l7 = [n ** 2 for n in l if n % 2 == 0 if n > 1]
 print(l7)  # Imprime [4]
