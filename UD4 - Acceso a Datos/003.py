@@ -5,3 +5,5 @@ fichero = open(dirFichero, 'w')
 for l in lineas:
     fichero.write(l + '\n')
 fichero.close()
+
+
