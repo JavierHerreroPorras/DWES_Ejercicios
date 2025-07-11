@@ -6,4 +6,4 @@ def home_view(request):
     """
     A simple view that returns a welcome message.
     """
-    return HttpResponse("Welcome to my Django application!")
+    return render(request, 'home.html')
