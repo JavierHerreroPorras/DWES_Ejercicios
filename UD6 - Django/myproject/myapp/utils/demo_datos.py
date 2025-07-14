@@ -2,7 +2,7 @@ from myapp.models import Author, Book
 from datetime import date
 
 # python manage.py shell
-# from myapp.utils.demo_datos import crear_datos, consultar_datos
+# from myapp.utils.demo_datos import crear_datos, consultar_datos, consultar_datos_encadenamiento
 
 def crear_datos():
     # Crear autores
@@ -33,6 +33,7 @@ def crear_datos():
     Book.objects.create(title="La ley del amor", author=a5, published_date=date(1995, 3, 1), isbn="9788466329514")
 
 def consultar_datos():
+    # Metodos que devuelven QuerySets
     print("\n Todos los libros:")
     for libro in Book.objects.all():
         print(f"id: {libro.pk} - {libro.title} - {libro.author.name}")
@@ -49,6 +50,24 @@ def consultar_datos():
     for libro in Book.objects.filter(title__icontains='amor'):
         print(libro.title)
 
+    # Encadenamiento: Obtener libros de aquellos autores nacidos antes de 1930, que en su titulo no contengan "ficciones"
+    # y ordenados por fecha de publicación descendente
+    libros = Book.objects \
+        .filter(author__birthdate__lt="1930-01-01") \
+        .exclude(title__icontains="ficciones") \
+        .order_by('-published_date')
+
+    for libro in libros:
+        print(libro.get_summary())
+
+    # Métodos que devuelven un tipo distinto de dato a QuerySet
+    # Contar cuántos libros hay en total
+    total_libros = Book.objects.count()
+    print(f"Total de libros: {total_libros}")
+
+    # Obtener el primer libro (por orden por defecto, generalmente por ID)
+    primer_libro = Book.objects.first()
+    print(f"Primer libro creado: {primer_libro.title} ({primer_libro.published_date})")
 
 def autores():
     # Crear un autor y guardarlo en la base de datos
@@ -69,3 +88,4 @@ def autores():
         name='J. K. Rowling',
         defaults={'birthdate': '1965-07-31'}
     )
+
