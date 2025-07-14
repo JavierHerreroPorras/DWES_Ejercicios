@@ -33,4 +33,4 @@ class Book(models.Model):
         """
         Return a summary of the book.
         """
-        return f"{self.title} by {self.author.name}, published on {self.published_date.year('%Y')}"
+        return f"{self.title} by {self.author.name}, published on {self.published_date.year}"
