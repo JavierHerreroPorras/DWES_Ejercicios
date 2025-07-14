@@ -49,21 +49,23 @@ def consultar_datos():
     for libro in Book.objects.filter(title__icontains='amor'):
         print(libro.title)
 
-# Crear un autor y guardarlo en la base de datos
-autor = Author(name='Gabriel García Márquez', birthdate='1927-03-06')
-autor.save()
-# Crear un autor y guardarlo en la base de datos
-autor = Author.objects.create(name='Isabel Allende', birthdate='1942-08-02')
-# Crear varios autores de una vez
-autores = [
-    Author(name='Julio Cortázar', birthdate='1914-08-26'),
-    Author(name='Mario Vargas Llosa', birthdate='1936-03-28'),
-]
-Author.objects.bulk_create(autores)
-# Obtener o crear un autor, sin duplicados
-autor2, creado2 = Author.objects.get_or_create(name='Borges', birthdate='1899-08-24')
-# Obtener o crear un autor, sin duplicados
-autor3, creado3 = Author.objects.update_or_create(
-    name='J. K. Rowling',
-    defaults={'birthdate': '1965-07-31'}
-)
+
+def autores():
+    # Crear un autor y guardarlo en la base de datos
+    autor = Author(name='Gabriel García Márquez', birthdate='1927-03-06')
+    autor.save()
+    # Crear un autor y guardarlo en la base de datos
+    autor = Author.objects.create(name='Isabel Allende', birthdate='1942-08-02')
+    # Crear varios autores de una vez
+    autores = [
+        Author(name='Julio Cortázar', birthdate='1914-08-26'),
+        Author(name='Mario Vargas Llosa', birthdate='1936-03-28'),
+    ]
+    Author.objects.bulk_create(autores)
+    # Obtener o crear un autor, sin duplicados
+    autor2, creado2 = Author.objects.get_or_create(name='Borges', birthdate='1899-08-24')
+    # Obtener o crear un autor, sin duplicados
+    autor3, creado3 = Author.objects.update_or_create(
+        name='J. K. Rowling',
+        defaults={'birthdate': '1965-07-31'}
+    )

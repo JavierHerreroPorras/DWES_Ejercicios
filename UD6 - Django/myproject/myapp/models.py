@@ -21,3 +21,16 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def is_classic(self):
+        """
+        Check if the book is a classic (published before 1970).
+        """
+        return self.published_date.year < 1970
+
+    def get_summary(self):
+        """
+        Return a summary of the book.
+        """
+        return f"{self.title} by {self.author.name}, published on {self.published_date.year('%Y')}"

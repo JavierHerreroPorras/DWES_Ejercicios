@@ -3,7 +3,10 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home_view(request):
-    """
-    A simple view that returns a welcome message.
-    """
     return render(request, 'home.html')
+
+def home(request):
+    context = {
+        'message': '¡Bienvenido a la página de inicio!',
+    }
+    return render(request, 'home.html', context)
