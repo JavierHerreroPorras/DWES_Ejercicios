@@ -34,3 +34,27 @@ class Book(models.Model):
         Return a summary of the book.
         """
         return f"{self.title} by {self.author.name}, published on {self.published_date.year}"
+
+class BookAward(models.Model):
+    nombre = models.CharField(max_length=100)
+    anio = models.PositiveIntegerField()
+    pais = models.CharField(max_length=50)
+    organizador = models.CharField(max_length=100)
+    categoria = models.CharField(max_length=50)
+    idioma = models.CharField(max_length=30)
+    dotacion_economica = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    fecha_entrega = models.DateField(null=True, blank=True)
+    ciudad = models.CharField(max_length=50)
+    edicion = models.PositiveIntegerField(help_text="Número de edición del premio", null=True, blank=True)
+    ambito = models.CharField(max_length=50, choices=[('internacional', 'Internacional'), ('nacional', 'Nacional')])
+    descripcion = models.TextField(blank=True)
+    pagina_oficial = models.URLField(blank=True)
+    es_activo = models.BooleanField(default=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['nombre', 'anio'], name='unique_premio_anio')
+        ]
+
+

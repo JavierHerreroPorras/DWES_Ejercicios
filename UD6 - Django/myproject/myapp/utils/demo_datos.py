@@ -1,8 +1,8 @@
-from myapp.models import Author, Book
+from myapp.models import Author, Book, BookAward
 from datetime import date
 
 # python manage.py shell
-# from myapp.utils.demo_datos import crear_datos, consultar_datos, consultar_datos_encadenamiento
+# from myapp.utils.demo_datos import *
 
 def crear_datos():
     # Crear autores
@@ -88,4 +88,49 @@ def autores():
         name='J. K. Rowling',
         defaults={'birthdate': '1965-07-31'}
     )
+
+def crear_y_actualizar_premio():
+    # Crear el premio
+    premio = BookAward.objects.create(
+        nombre="Premio Cervantes",
+        anio=2025,
+        pais="España",
+        organizador="Ministerio de Cultura",
+        categoria="Narrativa",
+        idioma="Español",
+        dotacion_economica=125000.00,
+        fecha_entrega=date(2025, 4, 23),
+        ciudad="Alcalá de Henares",
+        edicion=50,
+        ambito="nacional",
+        descripcion="Máximo galardón de las letras españolas",
+        pagina_oficial="https://www.culturaydeporte.gob.es",
+        es_activo=True
+    )
+
+    # Guardar todos los campos (generará una UPDATE completa)
+    premio.descripcion = "Premio más prestigioso de literatura en español"
+    premio.save()
+
+    # Guardar solo el campo 'ciudad' para optimizar la consulta SQL
+    premio.ciudad = "Madrid"
+    premio.save(update_fields=["ciudad"])
+
+def acceso_objetos_relacionados():
+    # Obtener un libro y mostrar su autor
+    libro = Book.objects.first()
+    if libro:
+        print(f"Libro: {libro.title}")
+        print(f"Autor: {libro.author.name}")
+        print("")
+
+    # Obtener un autor y mostrar sus libros
+    autor = Author.objects.first()
+    if autor:
+        print(f"Autor: {autor.name}")
+        print("Libros escritos:")
+        for libro in autor.book_set.all():
+            print(f" - {libro.title}")
+
+
 
