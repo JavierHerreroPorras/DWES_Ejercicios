@@ -824,3 +824,105 @@ def convertir_a_cadena(objeto):
 objeto = 12345
 print(convertir_a_cadena(objeto))  # Resultado: "12345"
 ```
+
+# Ejercicios sin resolver
+1. Solicita al usuario un número y muestra si es par o impar.
+2. Pide dos números al usuario y muestra la suma, la resta, el producto y el cociente.
+3. Solicita una edad e indica si es mayor de edad.
+4. Pide una nota del 0 al 10 e imprime su calificación (suspenso, aprobado, notable, sobresaliente).
+5. Solicita al usuario un número y muestra su tabla de multiplicar del 1 al 10.
+6. Imprime todos los números del 1 al 100 que sean múltiplos de 3 y de 5.
+7. Cuenta cuántas vocales hay en una cadena introducida por el usuario.
+8. Solicita una frase e imprime cada carácter por separado, uno por línea.
+9. Pide al usuario su nombre y muestra un saludo personalizado en mayúsculas.
+10. Solicita al usuario una palabra y di si empieza por vocal.
+11. Pide al usuario un número e indica si está entre 10 y 50 (ambos inclusive).
+12. Solicita una lista de 10 números y muestra cuántos son positivos.
+13. Crea una lista con los cuadrados de los números del 1 al 10.
+14. Dada una lista de frutas, solicita una fruta y di si está en la lista.
+15. Pide una palabra e imprime si es un palíndromo.
+16. Solicita al usuario que introduzca una frase. Imprime cuántas veces aparece cada vocal en la frase, si la palabra "python" está incluida (sin importar mayúsculas) y muestra la frase invertida.
+17. Define un diccionario con productos y precios. Solicita al usuario tres productos que desea comprar, uno por uno. Si el producto existe, muestra su precio. Si no, indica que no está disponible. Muestra el total de la compra.
+18. Solicita al usuario que introduzca 10 números, uno por uno, y guárdalos en una lista. Después, crea una lista con los positivos, otra con los negativos y otra con los pares mayores que 10. Imprime cada una.
+19. Crea un programa que simule un semáforo. El usuario introduce un color y se muestra un mensaje según sea "verde", "amarillo", "rojo" o un color no válido. Ignora mayúsculas/minúsculas al evaluar.
+20. Solicita al usuario que introduzca 10 frases distintas. Al terminar, muestra cuántas veces aparece cada letra del abecedario. Las letras que no aparezcan deben mostrarse con 0 apariciones.
+21. Solicita al usuario los nombres de personas que entran a un edificio. Finaliza cuando se introduzca "fin". Guarda los nombres en una lista. Luego, indica cuántos nombres únicos hay, cuántos se repiten y muestra los que se repiten.
+22. Simula un pequeño sistema de encuestas. El programa pregunta a 5 usuarios si les gusta el cine (respondiendo "sí" o "no"). Guarda las respuestas en un diccionario y muestra el recuento final.
+23. Solicita al usuario una frase. Crea un diccionario donde las claves sean las palabras de la frase y los valores cuántas veces aparece cada palabra.
+24. Define una lista de alumnos de primaria y otra de secundaria, introducidos por el usuario (finalizan con "x"). Muestra qué nombres están en ambos niveles, cuáles son únicos y el conjunto total sin repeticiones.
+25. Simula un sistema de control de acceso. Crea un conjunto de usuarios autorizados. El usuario introduce un nombre y el programa indica si puede acceder o no.
+26. Crea una lista con las temperaturas máximas registradas en los últimos 7 días. Muestra la temperatura más alta, la más baja, el promedio y cuántos días superaron los 30 grados.
+27. Solicita al usuario una serie de números hasta introducir 0. Luego muestra: la suma total, la cantidad de números introducidos, cuántos eran mayores que 100 y el promedio.
+28. Dado un diccionario con nombres de alumnos y sus calificaciones, muestra el nombre del alumno con mejor nota, el que tiene la peor, y la media de la clase.
+29. Solicita una lista de productos comprados con su precio. Al finalizar, genera un ticket de compra con el total y un desglose de cada producto.
+30. Crea un sistema de reservas de entradas para un cine. El programa debe permitir añadir nombres a una lista hasta que se llene el aforo (por ejemplo, 10 personas). Luego muestra los asistentes por orden alfabético.
+31. Crea un programa que simule el registro de votos. Cada persona introduce su nombre y elige una de las opciones disponibles. Al final, se muestra el resultado de la votación.
+32. Simula el registro de asistencia a una clase. Cada vez que un nombre se introduce, se añade al conjunto de presentes. El usuario puede introducir "fin" para cerrar la lista. Al final, muestra el número total de asistentes y sus nombres.
+33. Solicita 10 números al usuario y crea un diccionario donde las claves sean los números y los valores sus cuadrados.
+34. Simula una agenda de contactos. El usuario puede introducir pares nombre-teléfono hasta escribir "fin". Guarda los datos en un diccionario. Al final, permite buscar el número de una persona por su nombre.
+35. Solicita una cadena y crea un histograma de caracteres: cuántas veces aparece cada letra. Luego imprime un gráfico de barras en texto para visualizarlo.
+36. Simula un sistema de biblioteca donde se introducen títulos de libros prestados. Al finalizar, indica cuántas veces se ha prestado cada título.
+37. Solicita nombres y apellidos de socios de un club. Guárdalos en un diccionario junto con el año de inscripción. Permite consultar por nombre, añadir nuevos socios y modificar la fecha de inscripción.
+38. Crea un programa que administre productos de una tienda. Cada producto tiene nombre, precio y cantidad. Guarda esta información en un diccionario y permite consultar o modificar el stock.
+39. Pide al usuario introducir frases hasta que escriba "salir". Muestra las palabras más utilizadas en todas las frases.
+40. Simula un registro de viajes: cada entrada contiene el nombre del viajero, el destino y la fecha. Guarda los viajes en una lista de tuplas. Al final, muestra un resumen de destinos más visitados y la cantidad de viajes totales.
+41. Solicita al usuario una frase y muestra solo las palabras que tienen más de 5 letras.
+42. Pide al usuario una frase y transforma todas las letras a mayúsculas. Luego reemplaza todas las vocales por asteriscos.
+43. Solicita al usuario una frase y muestra cuántas palabras contiene, y cuál es la palabra más larga.
+44. Solicita una frase y muestra solo los caracteres que aparecen una única vez.
+45. Pide una cadena e indica si contiene únicamente letras, solo números o una combinación.
+46. Solicita al usuario una cadena y elimina todos los espacios en blanco.
+47. Solicita al usuario un texto y reemplaza todas las apariciones de la palabra "no" por "sí", sin importar mayúsculas/minúsculas.
+48. Pide al usuario una palabra y genera una nueva palabra con las letras impares (según posición) de la original.
+49. Solicita una frase y muestra todas las palabras ordenadas alfabéticamente.
+50. Pide una frase y crea un nuevo string que contenga solo las consonantes.
+51. Crea un sistema de control de contraseñas. Pide una contraseña y comprueba que tenga al menos 8 caracteres, una mayúscula y un número.
+52. Solicita una frase e imprime cuántas palabras empiezan por vocal.
+53. Pide una cadena e invierte solo las palabras, pero no el orden de las palabras.
+54. Pide una frase y elimina todos los signos de puntuación.
+55. Solicita una cadena y cuenta cuántas veces aparecen las sílabas "la", "le", "li", "lo", "lu".
+56. Pide una frase y muestra una tabla con cada carácter distinto y su código ASCII.
+57. Solicita una frase y detecta si contiene alguna palabra repetida.
+58. Solicita al usuario su nombre completo y muestra las iniciales.
+59. Pide una frase y reemplaza todas las letras acentuadas por su versión sin tilde.
+60. Solicita al usuario una lista de correos electrónicos separados por comas y muestra cuántos son válidos (contienen "@").
+61. Pide nombres separados por comas y elimina aquellos que comienzan por letra "A".
+62. Solicita un texto y comprueba si hay alguna palabra que aparezca más de 3 veces.
+63. Crea un sistema que detecte si una cadena es un anagrama de otra.
+64. Solicita una palabra e imprime si contiene letras repetidas adyacentes (por ejemplo, "ll", "ss").
+65. Pide una frase y convierte la primera letra de cada palabra a mayúsculas.
+66. Pide una fecha en formato dd/mm/aaaa y verifica si es válida.
+67. Solicita un número entero y muestra su representación binaria, octal y hexadecimal como cadena.
+68. Solicita un número de cuenta bancaria y calcula los dígitos de control simplificados (usa operaciones con strings y números).
+69. Solicita una frase y agrupa sus palabras por longitud. Muestra un diccionario donde la clave es la longitud y el valor es la lista de palabras de esa longitud.
+70. Crea un sistema de puntuación de frases. Por cada vocal suma 1 punto, por cada consonante suma 2 puntos. Muestra la puntuación final.
+71. Simula el análisis de un comentario en una red social. Pide un texto y muestra cuántos hashtags (#) y menciones (@) contiene.
+72. Pide una lista de nombres y muestra cuántos comienzan por cada letra del abecedario.
+73. Crea una lista de tuplas con información de canciones: (título, artista, duración). Permite buscar por artista y ver el total de tiempo de sus canciones.
+74. Simula un sistema de registro de alumnos con sus asignaturas y notas. Permite añadir alumnos, añadir notas y calcular la media de cada uno.
+75. Crea un programa que registre productos con sus precios en un diccionario. Permite modificar precios, eliminar productos y consultar precios.
+76. Simula un chat: cada mensaje enviado se guarda en una lista. Al final, muestra los 5 últimos mensajes en orden inverso.
+77. Pide al usuario nombres de películas hasta que escriba "fin". Después, muestra cuántas veces se repite cada título.
+78. Solicita una lista de compras en formato "producto:precio" separados por comas. Calcula el total y muestra los productos ordenados por precio.
+79. Solicita cadenas de texto hasta que una contenga solo números. Después, analiza cuántas contenían letras, números y símbolos.
+80. Simula un sistema de registro de tareas. Cada tarea tiene un nombre y una prioridad (alta, media, baja). Permite introducir tareas y luego mostrarlas ordenadas por prioridad.
+81. Pide al usuario varias frases y guarda en un conjunto todas las palabras que no se repiten en ninguna frase.
+82. Crea una lista de contactos con nombre, teléfono y correo electrónico. Permite buscar por nombre y mostrar el contacto completo.
+83. Pide cadenas de texto y almacena sus longitudes en una lista. Luego muestra la cadena más corta y la más larga.
+84. Crea una agenda de eventos: cada evento tiene nombre, fecha y hora. Permite añadir eventos y consultar por fecha.
+85. Solicita nombres y apellidos y los almacena en una lista de tuplas. Después permite ordenar alfabéticamente por apellido.
+86. Simula una encuesta sobre hábitos de lectura. Almacena respuestas en un diccionario con preguntas y respuestas. Luego muestra un resumen de los resultados.
+87. Crea un programa que simule la subida de temperatura diaria. Cada día se introduce un valor y se guarda en una lista. Al final, muestra la evolución.
+88. Simula un sistema de validación de matrículas de coche: deben tener 4 cifras seguidas de 3 letras mayúsculas. Valida varias entradas del usuario.
+89. Solicita frases e imprime aquellas que sean palíndromos completos (ignorando espacios y tildes).
+90. Solicita nombres de equipos y resultados de partidos en una lista de tuplas. Luego calcula cuántos partidos ganó cada equipo.
+91. Simula una base de datos de libros con título, autor y año. Permite filtrar libros por autor o año y mostrarlos.
+92. Crea un sistema de puntuación de palabras estilo Scrabble: cada letra tiene un valor y se suma el total de una palabra introducida por el usuario.
+93. Pide nombres y notas. Después, genera una lista de tuplas (nombre, nota) y muestra los aprobados y los suspensos.
+94. Solicita textos y muestra cuáles contienen todas las vocales al menos una vez.
+95. Crea una lista de tuplas con nombres de personas y su edad. Luego muestra quiénes son mayores de edad y quiénes no.
+96. Simula un sistema de almacén. Cada producto tiene un código, nombre, cantidad y precio. Permite introducir nuevos productos y consultar el stock.
+97. Pide al usuario 20 palabras y muestra las 5 más frecuentes
+98. Crea un programa que permita registrar varios mensajes. Al final, muestra todos los que contienen signos de exclamación o interrogación.
+99. Solicita una cadena y muestra si tiene caracteres repetidos no consecutivos.
+100. Simula un sistema de análisis de contraseñas. Solicita varias contraseñas y muestra cuántas cumplen criterios de longitud, combinación de mayúsculas/minúsculas y números.
