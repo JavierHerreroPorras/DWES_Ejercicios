@@ -1,7 +1,7 @@
 # UD3 - Programación Orientada a Objetos
 Ejercicios de Programación Orientada a Objetos
 
-## Ejercicio 1: Clase `Coche`
+## Ejercicio 0: Clase `Coche`
 Crea una clase `Coche` que tenga los siguientes atributos:
 - `marca`: cadena de texto que representa la marca del coche.
 - `modelo`: cadena de texto que representa el modelo del coche.
@@ -83,4 +83,112 @@ Crea un método mágico `__getitem__` que permita acceder a los atributos del co
 Crea un método mágico `__setitem__` que permita modificar los atributos del coche por su nombre.
 Crea un método mágico `__delitem__` que permita eliminar un atributo del coche por su nombre.
 Crea un método mágico `__contains__` que permita comprobar si un atributo existe en el coche.
-Crea un método mágico `__clone__`que
+
+
+1. **Clase `Producto`**  
+   Crea una clase que represente un producto con nombre, precio y stock.  
+   Incluye métodos para vender, reponer y mostrar el estado del producto mediante `__str__`.
+
+2. **Clase `Fracción`**  
+   Define una clase para representar fracciones con numerador y denominador.  
+   Permite sumar, restar, multiplicar y dividir fracciones usando operadores (`__add__`, etc.) y simplificarlas automáticamente.
+
+3. **Clase `Persona` con validación**  
+   Modela una persona con nombre, edad y DNI.  
+   Usa `@property` para validar que la edad sea positiva, e incluye una excepción personalizada si no lo es.
+
+4. **Clase `CajaFuerte` con métodos privados**  
+   Representa una caja fuerte protegida por contraseña.  
+   Solo puede accederse al contenido si se llama a un método que internamente verifique la contraseña correcta mediante un método privado.
+
+5. **Clase `Moneda` ordenable y hasheable**  
+   Crea una clase `Moneda` que se pueda comparar e insertar en estructuras como sets y diccionarios.  
+   Usa `@total_ordering` para implementar `__lt__`, `__eq__`, y `__hash__`.
+
+6. **Clase `CuentaBancaria` con control de errores y operadores**  
+   Simula una cuenta bancaria con métodos `ingresar`, `retirar`, control de saldo insuficiente con excepciones, y la posibilidad de fusionar cuentas con `+`.
+
+7. **Clase `Rectángulo` con `__len__` y validación**  
+   Representa un rectángulo con atributos validados.  
+   Al aplicar `len()` devuelve el área. Permite compararse por igualdad y representarse por pantalla.
+
+8. **Clase `Cadena` con operadores sobrecargados**  
+   Simula el comportamiento de una cadena.  
+   Soporta concatenación (`+`), repetición (`*`), comparación (`==`) y representación (`__str__`).
+
+9. **Clase `Contador` (Singleton)**  
+   Implementa una clase contador compartido por todas las instancias.  
+   Usa el patrón singleton con `__new__` para asegurar que solo haya una instancia global.
+
+10. **Clase `Email` con validación y propiedad protegida**  
+    Crea una clase que represente un correo electrónico.  
+    Usa `@property` para validar el formato y lanza una excepción personalizada si es incorrecto.
+
+11. **Clases `Animal` y `Perro` con herencia y polimorfismo**  
+    Define una jerarquía donde cada animal puede emitir un sonido.  
+    `Perro` sobreescribe el método base y añade un atributo propio.
+
+12. **Clases `CuentaBancaria`, `CuentaCorriente`, `CuentaAhorro`**  
+    Implementa una jerarquía bancaria.  
+    Las subclases añaden comportamiento específico como comisiones o intereses.  
+    Se debe poder instanciar cualquier cuenta y mostrarla con `__str__`.
+
+13. **Clase `Matriz` con validaciones y operadores**  
+    Representa matrices y permite sumarlas, restarlas y multiplicarlas.  
+    Implementa validaciones de tamaño y una representación en varias líneas (`__str__`).
+
+14. **Clase `Empleado` ordenable por salario**  
+    Define empleados con nombre y sueldo.  
+    Implementa ordenación usando `@total_ordering` y métodos mágicos (`__lt__`, `__eq__`).
+
+15. **Clase `Vehículo` con encapsulación y destrucción**  
+    Usa atributos privados y métodos para cambiar la velocidad.  
+    El método `__del__` muestra un mensaje cuando el objeto es destruido.
+
+16. **Clase `Triángulo` con validación de lados y métodos personalizados**  
+    Verifica al crearse que los tres lados conformen un triángulo válido.  
+    Incluye métodos como `es_equilatero`, `perímetro` y lanza una excepción si los lados no son válidos.
+
+17. **Clases `DictSeguro` y `Protegido` con herencia múltiple**  
+    Crea una clase diccionario que puede bloquearse o desbloquearse.  
+    Al estar bloqueado no permite modificar sus valores.  
+    Utiliza herencia múltiple para combinar el comportamiento.
+
+18. **Clase `Fecha` con validación y operadores**  
+    Modela fechas reales teniendo en cuenta los días de cada mes y años bisiestos.  
+    Implementa comparación, representación y hashing.
+
+19. **Clase `Ruta` con iteración personalizada**  
+    Implementa una lista de puntos que pueden recorrerse paso a paso mediante un iterador (`__iter__`, `__next__`).  
+    Permite reiniciar el recorrido.
+
+20. **Clase `ArchivoTexto` con `with` y control de errores**  
+    Gestiona la apertura, lectura y escritura de archivos.  
+    Implementa `__enter__` y `__exit__` para integrarse con `with`.  
+    Controla excepciones de apertura o escritura.
+
+21. **Clases `Usuario`, `Moderador`, `Administrador` con herencia**  
+    Crea diferentes tipos de usuarios con niveles de permiso.  
+    Cada clase implementa métodos `ver`, `editar`, `eliminar`, sobrescribiéndolos según su rol.  
+    Usa `NotImplementedError` en la clase base para métodos abstractos.
+
+22. **Clase `ProductoClonable` con método `clone()`**  
+    Representa productos que pueden duplicarse.  
+    Implementa un método `clone()` que genera una copia exacta del objeto con sus atributos.
+
+23. **Clase `Temperatura` convertible entre unidades**  
+    Guarda la temperatura en una unidad base y permite consultarla y modificarla en otras (`Celsius`, `Fahrenheit`, `Kelvin`) usando `@property`.
+
+24. **Clase `JuegoDeCartas` con baraja y excepciones**  
+    Simula un mazo de cartas que puede barajarse y repartir.  
+    Lanza una excepción personalizada `MazoVacioError` si se intenta repartir sin cartas.  
+    Permite reiniciar la baraja.
+
+25. **Sistema completo: Clases `Hotel`, `Habitación`, `Cliente`, `Reserva`**  
+    Diseña un sistema de reservas donde:  
+    - Las habitaciones tienen número, tipo y estado.  
+    - Los clientes tienen nombre y DNI validado.  
+    - Las reservas asocian un cliente con una habitación en una fecha.  
+    - El hotel gestiona habitaciones, disponibilidad y permite listar reservas.  
+    Usa propiedades, métodos especiales, herencia y excepciones (`HabitacionOcupadaError`, `ClienteInvalidoError`, etc.).  
+    Este ejercicio integra múltiples clases y conceptos en un pequeño sistema orientado a objetos.
