@@ -1,0 +1,156 @@
+# Ejercicios complementarios de Python
+
+## type
+1. Pide un valor al usuario e imprime qué tipo de dato es.
+2. Solicita un número y conviértelo a cadena. Muestra el tipo antes y después.
+3. Solicita un texto que represente un número decimal y conviértelo a float. Muestra el tipo en cada paso.
+4. Pide al usuario una lista de números en formato cadena separados por comas. Convierte cada elemento a entero y muestra el tipo de los elementos antes y después.
+5. Define un diccionario con valores de tipos distintos (int, float, str, bool). Imprime el tipo de cada valor.
+6. Pide al usuario una fecha como texto y conviértela en una tupla (día, mes, año). Imprime el tipo antes y después.
+7. Escribe una función que reciba cualquier valor y devuelva un mensaje con su tipo.
+8. Usa isinstance para comprobar si un valor introducido es número entero.
+9. Crea una lista con valores de distintos tipos. Recorre la lista mostrando el valor y su tipo.
+10. Pide un número y comprueba si es int o float.
+
+## map
+1. Usa map para convertir una lista de cadenas numéricas en enteros.
+2. Usa map para pasar todos los nombres de una lista a mayúsculas.
+3. Usa map para obtener el cuadrado de una lista de números.
+4. Usa map para calcular la longitud de cada palabra de una lista.
+5. Usa map con una función lambda para redondear a 2 decimales una lista de flotantes.
+6. Convierte con map una lista de temperaturas en Celsius a Fahrenheit.
+7. Usa map para sumar 10 a cada número de una lista.
+8. Aplica map a dos listas para obtener la suma elemento a elemento.
+9. Usa map para capitalizar las palabras de una lista.
+10. Crea un programa que convierta una lista de números enteros en sus cadenas binarias usando map.
+
+## filter
+1. Usa filter para obtener los números pares de una lista.
+2. Usa filter para quedarte con los números mayores que 10 en una lista.
+3. Usa filter para seleccionar palabras que empiecen por vocal.
+4. Filtra una lista de edades para quedarte con los mayores de edad.
+5. Filtra una lista de notas para obtener solo los aprobados.
+6. Usa filter para extraer números positivos de una lista.
+7. Filtra los correos electrónicos válidos (contienen @).
+8. Filtra palabras de más de 5 letras en una lista.
+9. Filtra cadenas que sean palíndromos.
+10. Filtra productos cuyo precio sea mayor a 50, a partir de una lista de tuplas (producto, precio).
+
+## reduce
+1. Usa reduce para sumar todos los números de una lista.
+2. Usa reduce para calcular el producto de los números de una lista.
+3. Calcula con reduce el máximo de una lista.
+4. Calcula con reduce el mínimo de una lista.
+5. Usa reduce para concatenar una lista de palabras en una sola cadena.
+6. Usa reduce para calcular el MCD de una lista de números.
+7. Calcula con reduce el factorial de un número.
+8. Usa reduce para sumar los dígitos de un número entero.
+9. Calcula con reduce la media de una lista de números.
+10. Usa reduce para generar una cadena que intercale los elementos de una lista con guiones.
+
+## zip
+1. Une dos listas de igual longitud en una lista de tuplas.
+2. Usa zip para recorrer a la vez dos listas (nombres y edades).
+3. Combina listas de productos y precios en un diccionario.
+4. Usa zip para multiplicar elementos de dos listas posición a posición.
+5. Une tres listas (nombre, apellido, edad) en una lista de tuplas.
+6. Usa zip para emparejar claves y valores y crear un diccionario.
+7. Dadas dos listas (alumnos, notas), muestra frases del tipo “X ha sacado Y”.
+8. Crea un programa que combine dos listas y luego separe las tuplas resultantes.
+9. Usa zip con enumerate para mostrar índice y valor de dos listas a la vez.
+10. Usa zip para emparejar letras de dos cadenas distintas.
+
+## sorted
+1. Ordena una lista de números de menor a mayor.
+2. Ordena una lista de palabras alfabéticamente.
+3. Ordena una lista de palabras ignorando mayúsculas.
+4. Ordena una lista de tuplas (nombre, edad) por edad.
+5. Ordena una lista de diccionarios por el valor de una clave.
+6. Usa sorted con reverse=True para ordenar de mayor a menor.
+7. Ordena una lista de cadenas por longitud.
+8. Ordena una lista de números eliminando duplicados.
+9. Ordena una lista de nombres según la última letra.
+10. Usa sorted para ordenar las claves de un diccionario.
+
+## reversed
+1. Imprime una lista de números en orden inverso.
+2. Invierte una cadena con reversed.
+3. Invierte una tupla.
+4. Crea una lista invertida a partir de otra.
+5. Recorre una lista al revés con for y reversed.
+6. Invierte una lista de palabras y muéstrala unida por espacios.
+7. Usa reversed para mostrar un rango del 1 al 10 en orden descendente.
+8. Invierte un diccionario por claves (solo las claves).
+9. Invierte una lista de números y quédate con los pares.
+10. Usa reversed en combinación con enumerate para mostrar índice y valor desde el final.
+
+## any y all
+1. Comprueba con any si una lista de booleanos contiene al menos un True.
+2. Comprueba con all si todos los números de una lista son positivos.
+3. Usa any para comprobar si alguna palabra contiene la letra “z”.
+4. Usa all para verificar si todos los alumnos han aprobado.
+5. Usa any para comprobar si algún correo de una lista es válido.
+6. Usa all para verificar que todas las cadenas empiezan en mayúscula.
+7. Usa any para comprobar si una lista de contraseñas contiene al menos una con número.
+8. Usa all para verificar que todos los números son pares.
+9. Usa any para comprobar si algún número de una lista es múltiplo de 7.
+10. Usa all para verificar si todos los elementos de una lista son distintos (sin duplicados).
+
+## enumerate
+1. Muestra una lista de palabras con su índice.
+2. Recorre una lista de números mostrando su posición y valor.
+3. Usa enumerate para imprimir letras de una cadena con su índice.
+4. Genera un diccionario a partir de una lista donde la clave sea el índice.
+5. Usa enumerate para recorrer una lista en orden inverso.
+6. Recorre una lista y detente al llegar a un índice dado.
+7. Usa enumerate para reemplazar elementos en posiciones pares de una lista.
+8. Genera tuplas (posición, valor) de una lista y guárdalas en otra lista.
+9. Usa enumerate con un desplazamiento de inicio distinto de 0.
+10. Usa enumerate para mostrar líneas numeradas de un texto introducido.
+
+## lambda
+1. Crea una lambda que sume dos números.
+2. Usa lambda para elevar un número al cuadrado.
+3. Usa lambda para calcular el máximo de dos números.
+4. Ordena una lista de tuplas por la segunda posición con sorted y lambda.
+5. Usa lambda en map para convertir grados Celsius a Fahrenheit.
+6. Usa lambda en filter para obtener palabras largas.
+7. Usa lambda en reduce para multiplicar todos los elementos de una lista.
+8. Define una lista de funciones lambda que realicen operaciones básicas (suma, resta, multiplicación).
+9. Usa lambda para comprobar si un número es par o impar.
+10. Usa lambda para calcular el doble de los números pares de una lista.
+
+## Comprensiones
+1. Crea una lista con los cuadrados de los números del 1 al 10.
+2. Crea una lista con las vocales de una cadena dada.
+3. Crea una lista con los múltiplos de 3 entre 1 y 100.
+4. Crea una lista con palabras de una frase que tengan más de 5 letras.
+5. Crea un diccionario donde las claves sean números del 1 al 5 y los valores sus cubos.
+6. Crea un conjunto con todas las letras únicas de una palabra.
+7. Genera una lista de tuplas (n, n^2) para n del 1 al 10.
+8. Crea una lista con las longitudes de cada palabra de una frase.
+9. Genera un diccionario que cuente cuántas veces aparece cada letra en una cadena.
+10. Crea una lista con los inversos de los números del 1 al 10 que no sean 0.
+
+## Módulos y math
+1. Importa math y calcula la raíz cuadrada de un número.
+2. Usa math.pi para calcular la circunferencia de un círculo.
+3. Usa math.factorial para calcular factoriales.
+4. Usa math.pow para calcular potencias.
+5. Usa math.log10 para calcular logaritmos en base 10.
+6. Usa math.ceil y math.floor para redondear un número.
+7. Usa math.sin, math.cos, math.tan con un ángulo en radianes.
+8. Usa math.gcd para calcular el MCD de dos números.
+9. Crea un programa que importe un módulo propio con funciones matemáticas básicas.
+10. Crea un paquete con un módulo de geometría que calcule área y perímetro de figuras.
+
+## Integradores
+1. Crea una función que reciba una lista de números y devuelva otra lista con los cuadrados de los pares (usa filter, map, lambda y comprensión).
+2. Pide una lista de palabras y genera un diccionario con palabra → longitud (usa comprensión y zip).
+3. Crea un programa que calcule la media, mediana y moda de una lista de números (usa funciones y sorted).
+4. Genera un listado de alumnos con notas. Muestra aprobados y suspensos usando filter, lambda y enumerate.
+5. Implementa un sistema que lea frases y cuente palabras únicas (usa set, comprensión y any).
+6. Crea un programa que ordene una lista de productos por precio descendente (usa sorted y lambda).
+7. Implementa un conversor de temperaturas que use un paquete propio (conversores) con funciones.
+8. Crea una función que calcule factorial con reduce y math.
+9. Haz un programa que tome dos listas (alumnos, notas) y cree tuplas con zip. Luego, ordénalas con sorted.
