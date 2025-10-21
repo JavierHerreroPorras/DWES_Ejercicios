@@ -254,6 +254,12 @@ Si la hora de comienzo es 8:00 y la hora de fin es 10:07, el programa debe indic
 57. **Control de cambios en un proyecto**  
     Recibe una lista de cambios en un proyecto, cada uno con una fecha y descripción. Crea una función que los ordene y resuma por semana, indicando cuántos cambios hubo cada una.
 
+[
+{"fecha": "01-03-2025", "descripcion": "paco"},
+{"fecha": "01-03-2025", "descripcion": "paco1"},
+{"fecha": "02-03-2025", "descripcion": "paco2"},
+{"fecha": "01-03-2025", "descripcion": "paco3"},
+]
 58. **Agrupación de datos climáticos**  
     Dado un CSV (simulado como lista de tuplas) con fecha, ciudad y temperatura, agrupa los datos por ciudad y devuelve la temperatura media, mínima y máxima por ciudad.
 
@@ -271,3 +277,37 @@ Si la hora de comienzo es 8:00 y la hora de fin es 10:07, el programa debe indic
     - El número total de escaneos registrados.  
     Ordena el resultado alfabéticamente por nombre y presenta los datos en un formato legible.
 
+61. **Usuarios y roles (autenticación)**
+```
+users = [
+    {"id": 1, "email": "ana@example.com",   "is_active": True,  "roles": ["admin", "editor"]},
+    {"id": 2, "email": "borja@example.com", "is_active": False, "roles": ["viewer"]},
+    {"id": 3, "email": "carla@example.com", "is_active": True,  "roles": ["editor", "viewer"]},
+    {"id": 4, "email": "david@example.com", "is_active": True,  "roles": ["viewer"]},
+    {"id": 5, "email": "eva@example.com",   "is_active": True,  "roles": ["editor", "editor"]}
+]
+```
+    **Tareas**
+    1. `emails_activos` → Devuelve una lista con los correos electrónicos de los usuarios activos, ordenados alfabéticamente.  
+    2. `roles_unicos` → Devuelve el conjunto de todos los roles distintos presentes en el sistema.  
+    3. `conteo_usuarios_por_rol` → Devuelve un diccionario que indique cuántos usuarios tienen cada rol, sin contar duplicados por persona.  
+    4. `existe_inactivo_con_rol` → Devuelve un valor booleano indicando si hay algún usuario inactivo con el rol “editor”.  
+    5. `activos_con_al_menos_un_rol` → Devuelve un valor booleano indicando si todos los usuarios activos tienen al menos un rol asignado.
+
+62. **Pedidos de e-commerce**
+```
+orders = [
+    {"id": 101, "date": "2025-01-06", "status": "paid",     "items": [{"sku": "A1", "qty": 2, "price": 19.9}, {"sku": "B2", "qty": 1, "price": 5.5}]},
+    {"id": 102, "date": "2025-01-06", "status": "refunded", "items": [{"sku": "A1", "qty": 1, "price": 19.9}]},
+    {"id": 103, "date": "2025-01-07", "status": "paid",     "items": [{"sku": "C3", "qty": 3, "price": 7.0}]},
+    {"id": 104, "date": "2025-01-07", "status": "paid",     "items": [{"sku": "A1", "qty": 1, "price": 19.9}, {"sku": "C3", "qty": 2, "price": 7.0}]},
+    {"id": 105, "date": "2025-01-10", "status": "pending",  "items": []}
+]
+```
+
+**Tareas**
+1. `total_pedido` → Devuelve el importe total de un pedido, calculado a partir de las cantidades y precios.  
+2. `ingreso_total_pagados` → Devuelve el importe total ingresado considerando solo los pedidos con estado “paid”.  
+3. `sku_top_unidades_pagados` → Devuelve el identificador de producto (SKU) con mayor número total de unidades vendidas en pedidos pagados.  
+4. `ordenar_pedidos_por_total_desc` → Devuelve la lista de pedidos ordenada por importe total descendente.  
+5. `ingreso_por_fecha_pagados` → Devuelve un diccionario con las fechas y el ingreso total registrado cada día para pedidos pagados.
