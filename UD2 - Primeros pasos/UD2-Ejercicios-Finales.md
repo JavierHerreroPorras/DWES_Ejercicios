@@ -311,3 +311,118 @@ orders = [
 3. `sku_top_unidades_pagados` → Devuelve el identificador de producto (SKU) con mayor número total de unidades vendidas en pedidos pagados.  
 4. `ordenar_pedidos_por_total_desc` → Devuelve la lista de pedidos ordenada por importe total descendente.  
 5. `ingreso_por_fecha_pagados` → Devuelve un diccionario con las fechas y el ingreso total registrado cada día para pedidos pagados.
+
+
+63. **Pedidos multi-almacén con pagos y envíos (e-commerce avanzado)**
+
+```
+orders = [
+    {
+        "id": 501,
+        "customer": {"id": 1, "email": "ana@example.com", "tier": "gold"},
+        "created_at": "2025-03-10T09:30:00",
+        "status": "paid",
+        "items": [
+            {"sku": "A1", "qty": 2, "price": 19.90, "discounts": [{"type": "coupon", "value": 5.00}]},
+            {"sku": "B2", "qty": 1, "price": 5.50, "discounts": []}
+        ],
+        "tax": {"rate": 0.21, "region": "ES"},
+        "payments": [
+            {"method": "card", "amount": 30.00, "auth_code": "X1"},
+            {"method": "wallet", "amount": 12.30, "auth_code": "W9"}
+        ],
+        "shipments": [
+            {
+                "warehouse": "MAD-1",
+                "carrier": "PackGo",
+                "packages": [
+                    {"tracking": "PG-1001", "items": [{"sku": "A1", "qty": 1}], "status": "delivered"},
+                    {"tracking": "PG-1002", "items": [{"sku": "A1", "qty": 1}, {"sku": "B2", "qty": 1}], "status": "in_transit"}
+                ]
+            }
+        ]
+    },
+    {
+        "id": 502,
+        "customer": {"id": 2, "email": "borja@example.com", "tier": "standard"},
+        "created_at": "2025-03-10T10:10:00",
+        "status": "paid",
+        "items": [
+            {"sku": "C3", "qty": 3, "price": 7.00, "discounts": [{"type": "tier", "value": 2.00}]}
+        ],
+        "tax": {"rate": 0.10, "region": "PT"},
+        "payments": [
+            {"method": "card", "amount": 18.70, "auth_code": "X2"}
+        ],
+        "shipments": [
+            {
+                "warehouse": "LIS-2",
+                "carrier": "IberShip",
+                "packages": [
+                    {"tracking": "IB-2001", "items": [{"sku": "C3", "qty": 2}], "status": "delivered"}
+                ]
+            },
+            {
+                "warehouse": "LIS-2",
+                "carrier": "IberShip",
+                "packages": [
+                    {"tracking": "IB-2002", "items": [{"sku": "C3", "qty": 1}], "status": "label_created"}
+                ]
+            }
+        ]
+    },
+    {
+        "id": 503,
+        "customer": {"id": 1, "email": "ana@example.com", "tier": "gold"},
+        "created_at": "2025-03-11T08:05:00",
+        "status": "pending",
+        "items": [
+            {"sku": "A1", "qty": 1, "price": 19.90, "discounts": []}
+        ],
+        "tax": {"rate": 0.21, "region": "ES"},
+        "payments": [],
+        "shipments": []
+    },
+    {
+        "id": 504,
+        "customer": {"id": 3, "email": "carla@example.com", "tier": "premium"},
+        "created_at": "2025-03-12T15:45:00",
+        "status": "paid",
+        "items": [
+            {"sku": "D4", "qty": 1, "price": 100.00, "discounts": [{"type": "promo", "value": 10.00}]},
+            {"sku": "A1", "qty": 2, "price": 19.90, "discounts": []}
+        ],
+        "tax": {"rate": 0.21, "region": "ES"},
+        "payments": [
+            {"method": "card", "amount": 129.18, "auth_code": "X3"}
+        ],
+        "shipments": [
+            {
+                "warehouse": "VAL-1",
+                "carrier": "FastShip",
+                "packages": [
+                    {"tracking": "FS-3001", "items": [{"sku": "D4", "qty": 1}, {"sku": "A1", "qty": 1}], "status": "in_transit"}
+                ]
+            }
+        ]
+    }
+]
+```
+
+**Tareas**
+
+1. `emails_clientes` → Devuelve la lista de direcciones de correo de todos los clientes que han realizado al menos un pedido (sin duplicados).  
+2. `pedidos_pagados` → Devuelve la lista de pedidos cuyo estado sea `"paid"`.  
+3. `skus_distintos` → Devuelve el conjunto de todos los códigos de producto (`sku`) presentes en los pedidos.  
+4. `total_descuentos_por_pedido` → Devuelve un diccionario con la suma total de descuentos aplicados por pedido.  
+5. `importe_neto_por_pedido` → Devuelve un diccionario que asocia cada pedido con su importe neto (precio × cantidad − descuentos).  
+6. `importe_total_con_impuestos` → Devuelve un diccionario que asocia cada pedido con el total final aplicando el IVA correspondiente (`tax["rate"]`).  
+7. `recaudado_por_metodo_pago` → Devuelve un diccionario con el total recaudado por cada método de pago.  
+8. `promedio_ticket_por_cliente` → Devuelve un diccionario que asocia cada cliente con el promedio de importe total de sus pedidos pagados.  
+9. `productos_mas_vendidos` → Devuelve un diccionario con las unidades totales vendidas por SKU en todos los pedidos pagados.  
+10. `unidades_enviadas_por_sku` → Devuelve un diccionario con las unidades enviadas por SKU, sumando todos los paquetes de todos los envíos.  
+11. `estado_envio_por_pedido` → Devuelve un diccionario que resume el estado global de envío de cada pedido según el progreso de sus paquetes (`delivered`, `in_transit`, `label_created`, `no_shipping`).  
+12. `ingreso_bruto_por_region_fiscal` → Devuelve un diccionario que agrupa por región fiscal (`tax["region"]`) y acumula el ingreso bruto antes de impuestos.  
+13. `clientes_por_nivel` → Devuelve un diccionario donde cada nivel de cliente (`tier`) contiene el conjunto de emails de los clientes de ese nivel.  
+14. `sku_mas_frecuente_en_envios` → Devuelve el código de producto (`sku`) que aparece en más paquetes de envío, sin importar el pedido.  
+15. `pedidos_con_anomalias_pago` → Devuelve una lista de los pedidos donde la suma de los pagos registrados no coincide con el importe total esperado (considerando descuentos e impuestos).
