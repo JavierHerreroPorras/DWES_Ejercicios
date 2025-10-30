@@ -421,7 +421,7 @@ orders = [
 14. `sku_mas_frecuente_en_envios` → Devuelve el código de producto (`sku`) que aparece en más paquetes de envío, sin importar el pedido.  
 15. `pedidos_con_anomalias_pago` → Devuelve una lista de los pedidos donde la suma de los pagos registrados no coincide con el importe total esperado (considerando descuentos e impuestos).
 
-
+---
 
 64. **API del tiempo (pronóstico diario y horario)**
 
