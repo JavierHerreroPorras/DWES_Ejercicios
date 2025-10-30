@@ -254,12 +254,6 @@ Si la hora de comienzo es 8:00 y la hora de fin es 10:07, el programa debe indic
 57. **Control de cambios en un proyecto**  
     Recibe una lista de cambios en un proyecto, cada uno con una fecha y descripción. Crea una función que los ordene y resuma por semana, indicando cuántos cambios hubo cada una.
 
-[
-{"fecha": "01-03-2025", "descripcion": "paco"},
-{"fecha": "01-03-2025", "descripcion": "paco1"},
-{"fecha": "02-03-2025", "descripcion": "paco2"},
-{"fecha": "01-03-2025", "descripcion": "paco3"},
-]
 58. **Agrupación de datos climáticos**  
     Dado un CSV (simulado como lista de tuplas) con fecha, ciudad y temperatura, agrupa los datos por ciudad y devuelve la temperatura media, mínima y máxima por ciudad.
 
@@ -324,7 +318,7 @@ orders = [
         "status": "paid",
         "items": [
             {"sku": "A1", "qty": 2, "price": 19.90, "discounts": [{"type": "coupon", "value": 5.00}]},
-            {"sku": "B2", "qty": 1, "price": 5.50, "discounts": []}
+            {"sku": "A1", "qty": 1, "price": 5.50, "discounts": []}
         ],
         "tax": {"rate": 0.21, "region": "ES"},
         "payments": [
