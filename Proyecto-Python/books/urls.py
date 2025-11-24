@@ -1,9 +1,9 @@
-from django.contrib import admin
-from django.urls import path, include
-from books.views import *
+from django.urls import path
+from .views import new, search, search_all
 
 urlpatterns = [
     path('new/', new),
     #path('all/', ),
-    #path('filter/', )
+    path('search/<int:id>/', search),
+    path('search/', search_all)
 ]

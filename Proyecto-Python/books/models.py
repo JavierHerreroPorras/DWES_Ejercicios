@@ -16,7 +16,7 @@ class Book(models.Model):
     Model representing a book.
     """
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
     published_date = models.DateField()
     isbn = models.CharField(max_length=13, unique=True)
 
@@ -42,6 +42,13 @@ class Book(models.Model):
         Return a summary of the book.
         """
         return f"{self.title} by {self.author.name}, published on {self.published_date.year}"
+
+    def guardar_libro(self):
+        # Comprobar que el isbn no esté vacio
+        if self.isbn != "":
+            self.save()
+            return f"Libro guardado: {self.title}"
+        return "Libro no guardado"
 
 class BookAward(models.Model):
     nombre = models.CharField(max_length=100)
