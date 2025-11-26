@@ -24,8 +24,10 @@ def get_json_request(request):
     except (json.JSONDecodeError, UnicodeDecodeError):
         return {}
 
-# Create your views here.
+# @csrf_exempt --> Importante
 def new(request):
+    #body = get_json_request(request)
+    #print(body)
     a1 = Author.objects.get(pk=1)
 
     Book.objects.create(title="Cien años de soledad",
@@ -35,13 +37,7 @@ def new(request):
                         )
     return HttpResponse("El libro se ha creado correctamente")
 
-# @csrf_exempt --> Importante
 def search(request, id):
-    #pprint(request.__dict__)
-    #body = get_json_request(request)
-    #print(body)
-    #print(request.method)
-
     # Para pasar un objeto a JSON es necesario usar model_to_dict
     objecto_encontrado = Book.objects.get(id=id)
     diccionario = model_to_dict(objecto_encontrado)
