@@ -1,6 +1,9 @@
 from books.models import Author, Book, BookAward
 from datetime import date
 
+from django.shortcuts import render
+
+
 # python manage.py shell
 # from myapp.utils.demo_datos import *
 

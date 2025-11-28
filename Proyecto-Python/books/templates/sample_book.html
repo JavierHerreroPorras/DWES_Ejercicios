@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Book</title>
+</head>
+<body>
+
+    <h1>Book Details</h1>
+
+    {% if book %}
+        <h2>{{ book.title }}</h2>
+
+        <p><strong>Author:</strong> {{ book.author.name }} {{ book.author.surname }}</p>
+        <p><strong>Published:</strong> {{ book.published_date }}</p>
+        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+
+        <p><strong>Is Classic?</strong>
+            {% if book.is_classic %}
+                Yes, it is a classic.
+            {% else %}
+                No, it is not a classic.
+            {% endif %}
+        </p>
+
+    {% else %}
+        <p>No book available.</p>
+    {% endif %}
+
+</body>
+</html>

@@ -11,6 +11,18 @@ from books.models import Book, Author
 
 import json
 
+def home(request):
+    return render(request, 'home.html')
+
+
+def sample_book_view(request):
+    # Tomamos el primer libro de la base de datos como ejemplo
+    book = Book.objects.first()
+
+    return render(request, "sample_book.html", {
+        "book": book
+    })
+
 def get_json_request(request):
     """
     Devuelve el cuerpo JSON del request como dict.
@@ -24,18 +36,19 @@ def get_json_request(request):
     except (json.JSONDecodeError, UnicodeDecodeError):
         return {}
 
-# @csrf_exempt --> Importante
+@csrf_exempt
 def new(request):
-    #body = get_json_request(request)
-    #print(body)
+    body = get_json_request(request)
+
     a1 = Author.objects.get(pk=1)
 
-    Book.objects.create(title="Cien años de soledad",
+    a1 = Book.objects.create(title=body.get("nombre"),
                         author=a1,
                         published_date=date(1967, 5, 30),
                         isbn="2"
                         )
-    return HttpResponse("El libro se ha creado correctamente")
+    diccionario = model_to_dict(a1)
+    return JsonResponse(diccionario)
 
 def search(request, id):
     # Para pasar un objeto a JSON es necesario usar model_to_dict
@@ -45,8 +58,12 @@ def search(request, id):
     return JsonResponse(diccionario)
 
 def search_all(request):
-    # Para pasar un listado de objetos a JSON es necesario usar:
-        # .values() --> Acepta parámetros --> .values("id", "title")
-        # safe=False en JsonResponse, para que acepte una lista.
-        # Es necesario convertir el Queryset en lista con list()
-    return JsonResponse(list(Book.objects.all().values()), safe=False)
+    # Query param: order=asc | desc
+    order = request.GET.get("order", "asc")  # valor por defecto: ascendente
+
+    if order == "desc":
+        queryset = Book.objects.all().order_by("-published_date")
+    else:
+        queryset = Book.objects.all().order_by("published_date")
+
+    return JsonResponse(list(queryset.values()), safe=False)
