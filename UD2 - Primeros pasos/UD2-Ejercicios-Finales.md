@@ -530,3 +530,396 @@ weather = [
 8. `alertas_por_ciudad` → Devuelve un diccionario donde cada ciudad se asocia con el conjunto de códigos de alerta activos.  
 9. `horas_con_alta_prob_precipitacion` → Devuelve una lista de tuplas con ciudad, fecha y hora para todas las horas con `pop` mayor o igual que 0.6.  
 10. `resumen_diario_simple` → Devuelve un diccionario que asocia cada ciudad con una lista de resúmenes por día (cada resumen con `date`, `min`, `max`, `condition`).
+
+---
+
+65. API de vuelos (rutas, segmentos y precios diarios)
+
+```
+flights = [
+    {
+        "code": "IB3174",
+        "airline": "Iberia",
+        "origin": "MAD",
+        "destination": "LHR",
+        "segments": [
+            {"from": "MAD", "to": "LHR", "duration_min": 140}
+        ],
+        "dates": [
+            {
+                "date": "2025-04-10",
+                "price_eur": 135.0,
+                "seats": {"economy": 42, "business": 4},
+                "status": "On Time"
+            },
+            {
+                "date": "2025-04-11",
+                "price_eur": 160.0,
+                "seats": {"economy": 10, "business": 0},
+                "status": "Delayed"
+            }
+        ]
+    },
+    {
+        "code": "VY8901",
+        "airline": "Vueling",
+        "origin": "BCN",
+        "destination": "CDG",
+        "segments": [
+            {"from": "BCN", "to": "LYS", "duration_min": 75},
+            {"from": "LYS", "to": "CDG", "duration_min": 55}
+        ],
+        "dates": [
+            {
+                "date": "2025-04-10",
+                "price_eur": 98.0,
+                "seats": {"economy": 5, "business": 0},
+                "status": "On Time"
+            },
+            {
+                "date": "2025-04-12",
+                "price_eur": 120.0,
+                "seats": {"economy": 0, "business": 0},
+                "status": "Cancelled"
+            }
+        ]
+    },
+    {
+        "code": "LH1123",
+        "airline": "Lufthansa",
+        "origin": "MAD",
+        "destination": "FRA",
+        "segments": [
+            {"from": "MAD", "to": "FRA", "duration_min": 150}
+        ],
+        "dates": [
+            {
+                "date": "2025-04-10",
+                "price_eur": 180.0,
+                "seats": {"economy": 30, "business": 6},
+                "status": "On Time"
+            },
+            {
+                "date": "2025-04-11",
+                "price_eur": 175.0,
+                "seats": {"economy": 18, "business": 2},
+                "status": "On Time"
+            }
+        ]
+    }
+]
+```
+
+**Tareas**
+
+1. `companias_disponibles`: Devuelve el conjunto de aerolíneas presentes en los datos, sin duplicados.
+
+2. `rutas_disponibles`: Devuelve todas las rutas únicas en forma de tuplas `(origin, destination)`.
+
+3. `fechas_por_vuelo`: Devuelve un diccionario que asocia cada código de vuelo con la lista de fechas disponibles.
+
+4. `vuelos_con_escala`: Devuelve una lista con los códigos de los vuelos que tengan más de un segmento (vuelos con escalas).
+
+5. `precio_minimo_por_ruta`: Devuelve un diccionario que asocia cada ruta `(origin, destination)` con el precio mínimo observado entre todas sus fechas.
+
+6. `vuelos_sin_plazas`: Devuelve una lista de tuplas `(code, date)` donde la suma de plazas (`economy` + `business`) sea igual a 0.
+
+7. `vuelos_cancelados`: Devuelve una lista de tuplas `(code, date)` para todas las fechas con estado `"Cancelled"`.
+
+8. `ocupacion_media_por_vuelo`: Devuelve un diccionario que asocia cada código de vuelo con el número medio de plazas totales ofrecidas a lo largo de sus fechas.
+
+---
+
+66. API de biblioteca digital (autores, libros y préstamos)
+
+```
+library = {
+    "authors": [
+        {"id": 1, "name": "George", "surname": "Orwell", "country": "UK"},
+        {"id": 2, "name": "Haruki", "surname": "Murakami", "country": "Japan"},
+        {"id": 3, "name": "Margaret", "surname": "Atwood", "country": "Canada"}
+    ],
+    "books": [
+        {"id": 101, "title": "1984", "author_id": 1, "year": 1949, "genres": ["Dystopia", "Political"]},
+        {"id": 102, "title": "Animal Farm", "author_id": 1, "year": 1945, "genres": ["Satire"]},
+        {"id": 201, "title": "Norwegian Wood", "author_id": 2, "year": 1987, "genres": ["Romance"]},
+        {"id": 301, "title": "The Handmaid's Tale", "author_id": 3, "year": 1985, "genres": ["Dystopia"]}
+    ],
+    "loans": [
+        {
+            "user": "alice",
+            "items": [
+                {"book_id": 101, "date_out": "2025-02-10", "date_returned": None},
+                {"book_id": 201, "date_out": "2025-01-15", "date_returned": "2025-02-01"}
+            ]
+        },
+        {
+            "user": "bob",
+            "items": [
+                {"book_id": 102, "date_out": "2025-02-05", "date_returned": None}
+            ]
+        },
+        {
+            "user": "carol",
+            "items": [
+                {"book_id": 301, "date_out": "2025-01-20", "date_returned": "2025-02-10"},
+                {"book_id": 101, "date_out": "2025-02-15", "date_returned": "2025-03-01"}
+            ]
+        }
+    ]
+}
+```
+
+**Tareas**
+
+1. `autores_disponibles`: Devuelve el conjunto de nombres completos de autores presentes en los datos.
+
+2. `libros_por_autor`: Devuelve un diccionario que asocia cada autor (nombre completo) con la lista de títulos de sus libros.
+
+3. `libros_por_pais`: Devuelve un diccionario que asocia cada país con el conjunto de títulos escritos por autores de ese país.
+
+4. `libros_en_prestamo`: Devuelve una lista de tuplas `(user, title)` para todos los préstamos que todavía no han sido devueltos (`date_returned` es `None`).
+
+5. `historial_por_usuario`: Devuelve un diccionario que asocia cada usuario con la lista de títulos de todos los libros que ha tenido en préstamo alguna vez.
+
+6. `generos_disponibles`: Devuelve el conjunto de géneros distintos presentes en todos los libros.
+
+7. `libros_por_genero`: Devuelve un diccionario que asocia cada género con la lista de títulos que pertenecen a ese género.
+
+8. `autor_mas_prestado`: Devuelve el nombre completo del autor cuyas obras suman más préstamos en total (contando todas las apariciones en `items`).  
+
+---
+
+67. API de movilidad urbana (estaciones de bicis y viajes)
+
+```
+bikesharing = {
+    "stations": [
+        {
+            "id": 1,
+            "name": "Plaza España",
+            "district": "Centro",
+            "capacity": 25,
+            "status": {"bikes_available": 3, "docks_available": 22},
+            "coords": {"lat": 40.4231, "lon": -3.7123}
+        },
+        {
+            "id": 2,
+            "name": "Atocha Renfe",
+            "district": "Centro",
+            "capacity": 30,
+            "status": {"bikes_available": 0, "docks_available": 30},
+            "coords": {"lat": 40.4066, "lon": -3.6889}
+        },
+        {
+            "id": 3,
+            "name": "Parque Retiro",
+            "district": "Retiro",
+            "capacity": 20,
+            "status": {"bikes_available": 15, "docks_available": 5},
+            "coords": {"lat": 40.4154, "lon": -3.6820}
+        }
+    ],
+    "trips": [
+        {"origin_id": 1, "dest_id": 2, "duration_min": 8, "user_type": "casual"},
+        {"origin_id": 2, "dest_id": 3, "duration_min": 14, "user_type": "subscriber"},
+        {"origin_id": 3, "dest_id": 1, "duration_min": 11, "user_type": "subscriber"},
+        {"origin_id": 1, "dest_id": 3, "duration_min": 9, "user_type": "casual"},
+        {"origin_id": 3, "dest_id": 2, "duration_min": 7, "user_type": "subscriber"}
+    ]
+}
+```
+
+**Tareas**
+
+1. `estaciones_por_distrito`: Devuelve un diccionario que asocia cada distrito con la lista de nombres de estaciones que contiene.
+
+2. `estaciones_sin_bicis`: Devuelve una lista con los nombres de las estaciones que tienen `bikes_available` igual a 0.
+
+3. `estaciones_llenas`: Devuelve una lista con los nombres de las estaciones que no tienen huecos libres (`docks_available` igual a 0).
+
+4. `capacidad_total_por_distrito`: Devuelve un diccionario que asocia cada distrito con la suma de capacidades de sus estaciones.
+
+5. `viajes_por_estacion`: Devuelve un diccionario que asocia cada id de estación con el número total de viajes en los que participa (como origen o destino).
+
+6. `duracion_media_por_tipo_usuario`: Devuelve un diccionario que asocia cada tipo de usuario (`user_type`) con la duración media de sus viajes.
+
+7. `estaciones_mas_usadas`: Devuelve el conjunto de nombres de las estaciones con mayor número total de viajes (contando como origen y destino).
+
+8. `porcentaje_ocupacion_por_estacion`: Devuelve un diccionario que asocia cada nombre de estación con su porcentaje de ocupación actual (`bikes_available / capacity`).
+
+---
+
+68. API de cines (salas, películas y sesiones)
+
+```
+cinema_data = {
+    "theaters": [
+        {
+            "name": "Cines Centro",
+            "city": "Madrid",
+            "rooms": [
+                {"id": 1, "seats": 120, "sound": "Dolby 5.1", "is_3d": False},
+                {"id": 2, "seats": 80, "sound": "Dolby Atmos", "is_3d": True}
+            ]
+        },
+        {
+            "name": "MegaCine Norte",
+            "city": "Madrid",
+            "rooms": [
+                {"id": 1, "seats": 200, "sound": "Dolby 7.1", "is_3d": True}
+            ]
+        },
+        {
+            "name": "Ocimax",
+            "city": "Barcelona",
+            "rooms": [
+                {"id": 1, "seats": 150, "sound": "Dolby 5.1", "is_3d": False}
+            ]
+        }
+    ],
+    "showtimes": [
+        {
+            "theater": "Cines Centro",
+            "room_id": 1,
+            "movie": "Dune: Part Two",
+            "date": "2025-03-10",
+            "time": "18:00",
+            "language": "ES",
+            "format": "2D",
+            "price_eur": 9.5,
+            "sold": 90
+        },
+        {
+            "theater": "Cines Centro",
+            "room_id": 2,
+            "movie": "Dune: Part Two",
+            "date": "2025-03-10",
+            "time": "21:00",
+            "language": "VOSE",
+            "format": "3D",
+            "price_eur": 11.0,
+            "sold": 70
+        },
+        {
+            "theater": "MegaCine Norte",
+            "room_id": 1,
+            "movie": "Oppenheimer",
+            "date": "2025-03-10",
+            "time": "20:00",
+            "language": "ES",
+            "format": "2D",
+            "price_eur": 10.0,
+            "sold": 150
+        },
+        {
+            "theater": "Ocimax",
+            "room_id": 1,
+            "movie": "Inside Out 2",
+            "date": "2025-03-11",
+            "time": "17:30",
+            "language": "ES",
+            "format": "2D",
+            "price_eur": 8.0,
+            "sold": 120
+        }
+    ]
+}
+```
+
+**Tareas**
+
+1. `cines_disponibles`: Devuelve el conjunto de nombres de cines presentes en los datos.
+
+2. `peliculas_disponibles`: Devuelve el conjunto de títulos de películas presentes en las sesiones.
+
+3. `funciones_por_pelicula`: Devuelve un diccionario que asocia cada película con la lista de funciones disponibles como tuplas `(theater, date, time)`.
+
+4. `butacas_totales_por_cine`: Devuelve un diccionario que asocia cada cine con el número total de butacas sumando todas sus salas.
+
+5. `ocupacion_por_funcion`: Devuelve una lista de tuplas `(theater, movie, date, time, ratio)` donde `ratio` es el porcentaje de ocupación de esa función (`sold / seats`).
+
+6. `funciones_vose`: Devuelve una lista de funciones (tuplas `(theater, movie, date, time)`) cuyo `language` sea `"VOSE"`.
+
+7. `funciones_3d`: Devuelve una lista de funciones que se proyectan en formato `"3D"`.
+
+8. `recaudacion_por_pelicula`: Devuelve un diccionario que asocia cada película con su recaudación total aproximada (suma de `sold * price_eur` en todas sus sesiones).
+
+---
+
+69. API de restaurantes (menús, valoraciones y reservas)
+
+```
+restaurants = [
+    {
+        "name": "La Taberna de Sol",
+        "zone": "Centro",
+        "cuisine": "Española",
+        "rating": 4.6,
+        "menus": [
+            {"day": "2025-03-10", "type": "mediodia", "price_eur": 15.0, "dishes": ["Paella", "Ensalada mixta", "Flan"]},
+            {"day": "2025-03-11", "type": "mediodia", "price_eur": 16.0, "dishes": ["Cocido", "Croquetas", "Natillas"]}
+        ],
+        "reviews": [
+            {"user": "ana", "score": 5, "comment": "Muy buen menú del día"},
+            {"user": "luis", "score": 4, "comment": "Buen servicio y rápido"}
+        ],
+        "bookings": [
+            {"date": "2025-03-10", "people": 4, "shift": "mediodia"},
+            {"date": "2025-03-10", "people": 2, "shift": "noche"}
+        ]
+    },
+    {
+        "name": "Sakura",
+        "zone": "Norte",
+        "cuisine": "Japonesa",
+        "rating": 4.3,
+        "menus": [
+            {"day": "2025-03-10", "type": "noche", "price_eur": 22.0, "dishes": ["Sushi variado", "Miso", "Mochi"]},
+            {"day": "2025-03-11", "type": "noche", "price_eur": 24.0, "dishes": ["Ramen", "Gyozas", "Helado de té verde"]}
+        ],
+        "reviews": [
+            {"user": "mario", "score": 4, "comment": "Sushi muy fresco"},
+            {"user": "lucia", "score": 5, "comment": "Excelente trato"}
+        ],
+        "bookings": [
+            {"date": "2025-03-10", "people": 3, "shift": "noche"}
+        ]
+    },
+    {
+        "name": "Green Bowl",
+        "zone": "Centro",
+        "cuisine": "Vegetariana",
+        "rating": 4.1,
+        "menus": [
+            {"day": "2025-03-10", "type": "mediodia", "price_eur": 13.0, "dishes": ["Ensalada de quinoa", "Crema de calabaza", "Fruta"]},
+            {"day": "2025-03-12", "type": "mediodia", "price_eur": 14.0, "dishes": ["Burger veggie", "Patatas asadas", "Brownie vegano"]}
+        ],
+        "reviews": [
+            {"user": "carlos", "score": 4, "comment": "Opciones saludables"},
+            {"user": "elena", "score": 3, "comment": "Algo ruidoso"}
+        ],
+        "bookings": [
+            {"date": "2025-03-12", "people": 5, "shift": "mediodia"}
+        ]
+    }
+]
+```
+
+**Tareas**
+
+1. `zonas_disponibles`: Devuelve el conjunto de zonas presentes en los datos.
+
+2. `restaurantes_por_zona`: Devuelve un diccionario que asocia cada zona con la lista de nombres de restaurantes que hay en ella.
+
+3. `media_valoraciones_por_restaurante`: Devuelve un diccionario que asocia cada restaurante con la media de sus puntuaciones en `reviews`.
+
+4. `restaurantes_mejor_valorados`: Devuelve la lista de nombres de restaurantes cuya puntuación media sea mayor o igual que 4.5.
+
+5. `precio_medio_menus_por_restaurante`: Devuelve un diccionario que asocia cada restaurante con el precio medio de sus menús.
+
+6. `reservas_totales_por_restaurante`: Devuelve un diccionario que asocia cada restaurante con el número total de personas reservadas (suma de `people` en `bookings`).
+
+7. `platos_distintos_por_restaurante`: Devuelve un diccionario que asocia cada restaurante con el conjunto de platos distintos que aparecen en todos sus menús.
+
+8. `restaurantes_por_dia`: Devuelve un diccionario que asocia cada fecha (`day` en los menús) con el conjunto de nombres de restaurantes que ofrecen menú ese día.

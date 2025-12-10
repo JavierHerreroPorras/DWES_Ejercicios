@@ -115,3 +115,10 @@ print([p for p in frase.split() if len(p)>5])
 
 # Compresion --> 8
 print([len(p) for p in frase.split()])
+
+
+
+
+
+
+
